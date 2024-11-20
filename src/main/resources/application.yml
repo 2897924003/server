@@ -52,7 +52,7 @@ spring:
     host: smtp.qq.com
     port: 587
     username: 2897924003@qq.com
-    password: ldqqcsrbgkufdgfe
+    password: 
     properties:
       mail.smtp.auth: true
       mail.smtp.starttls.enable: true
