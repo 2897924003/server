@@ -1,13 +1,28 @@
 server:
   port: 8080
+  servlet:
+    session:
+      cookie:
+        same-site: none
+        secure: true
 
 logging:
   level:
     org.springframework.security: TRACE
+    org.hibernate.SQL: DEBUG  # 显示 Hibernate 执行的 SQL 语句
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE  # 显示绑定参数
 
 spring:
   application:
-    name: Single-Sign-On
+    name: cas
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true   # 格式化 SQL 语句，便于阅读
+        use_sql_comments: true # 在
+        show_sql: true
+
   #profiles:
   # active: local
   datasource:
@@ -20,7 +35,39 @@ spring:
       password:
       port: 6379
       host: 127.0.0.1
-  devtools:
-    restart:
-      enabled: true
+
+
+  graphql:
+    cors:
+      allowed-origins: http://localhost:9000
+
+
+  security:
+    user:
+      name: bili
+      password: 1234
+
+  mail:
+    protocol: smtp
+    host: smtp.qq.com
+    port: 587
+    username: 2897924003@qq.com
+    password: ldqqcsrbgkufdgfe
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+
+  rabbitmq:
+    username: guest
+    host: localhost
+    password: guest
+    port: 5672
+    virtual-host: /
+
+
+
+
+
+
+
 
